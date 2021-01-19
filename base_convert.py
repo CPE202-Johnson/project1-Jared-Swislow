@@ -1,5 +1,5 @@
 import string
-#int -> int
+#int -> int or char
 #If int is bigger than 9, returns A, B, C, etc.
 def convertHelper(num):
     if num > 9:
