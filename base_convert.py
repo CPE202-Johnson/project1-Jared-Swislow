@@ -14,8 +14,13 @@ def convert(num, b):
     quotient = int(num/b)
 
     if num == 0:
-        return ""
+        return "0"
     
     convertedNum = str(convert(quotient, b)) + str(convertHelper(num % b))
+
+    #Remove a leading zero, if present
+    if convertedNum[0] == "0":
+        convertedNum = convertedNum[1:]
+    
 
     return convertedNum
