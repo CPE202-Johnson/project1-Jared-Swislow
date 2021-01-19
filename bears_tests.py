@@ -2,17 +2,26 @@ import unittest
 from bears import *
 
 class TestAssign1(unittest.TestCase):
-    def test_bear_01(self):
+    #Testing for values that should return true
+    def test_bear_true(self):
         self.assertTrue(bears(250))
-
-    def test_bear_02(self):
         self.assertTrue(bears(42))
+        self.assertTrue(bears(210))
+        self.assertTrue(bears(5280))
 
-    def test_bear_03(self):
+    #Testing for values that should return false
+    def test_bear_false(self):
         self.assertFalse(bears(53))
-
-    def test_bear_04(self):
         self.assertFalse(bears(41))
+        self.assertFalse(bears(300))
+        self.assertFalse(bears(0))
+    
+    #Error checking
+    def test_bear_errors(self):
+        with self.assertRaises(ValueError):
+            bears(-3)
+        with self.assertRaises(ValueError):
+            bears("bears")
 
 if __name__ == "__main__":
     unittest.main()
