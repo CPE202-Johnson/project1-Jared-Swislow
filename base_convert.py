@@ -1,4 +1,5 @@
 import string
+import math
 #int -> int or char
 #If int is bigger than 9, returns A, B, C, etc.
 def convertHelper(num):
@@ -11,7 +12,7 @@ def convertHelper(num):
 def convert(num, b):
     if b > 16 or b < 2:
         raise ValueError()
-    quotient = int(num/b)
+    quotient = math.floor(num/b)
 
     if num == 0:
         return "0"
