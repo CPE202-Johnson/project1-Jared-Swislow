@@ -16,12 +16,12 @@ def bears(n):
     else: #n is an integer above 42
         #If n is divisible by 2
         returnVal1 = bears(int(n/2)) if n % 2 == 0 else False
-
-        #If n is divisible by 3 or 4
-        lastTwoDigits = int(str(n)[len(str(n))-2]) * int(str(n)[len(str(n))-1])
-        returnVal2 = bears(n - lastTwoDigits) if (n % 3 == 0 or n % 4 == 0) and (lastTwoDigits != 0) else False #Also checks if lastTwoDigits is 0, which would lead to infinite recursion
-
-        #if n is divisible by 5
-        returnVal3 = bears(n - 42) if n % 5 == 0 else False
+        if returnVal1 != True: #Only checks for 2nd conditions if first isn't true
+            #If n is divisible by 3 or 4
+            lastTwoDigits = int(str(n)[len(str(n))-2]) * int(str(n)[len(str(n))-1])
+            returnVal2 = bears(n - lastTwoDigits) if (n % 3 == 0 or n % 4 == 0) and (lastTwoDigits != 0) else False #Also checks if lastTwoDigits is 0, which would lead to infinite recursion
+            if returnVal2 != True: #Only checks for 3rd condition if second isn't true
+                #if n is divisible by 5
+                returnVal3 = bears(n - 42) if n % 5 == 0 else False
     
     return (returnVal1 or returnVal2 or returnVal3)
